@@ -14,7 +14,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px;
+    width: 100vw;
+    height: 100vh;
 }
 
 header {
@@ -22,7 +23,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    padding: 10px;
 }
 
 #logo {
@@ -43,16 +44,18 @@ header {
 #home-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex: 1;
+    padding: 0 10px;
     font-family: "inter";
 }
 
 #choices-container {
     display: flex;
     flex-direction: column;
-    margin: 50px 0 40px 0;
+    gap: 11px;
+    margin: 50px 0 0 0;
 }
 
 .choose-title {
@@ -62,7 +65,6 @@ header {
     font-size: 24px;
     height: 35px;
     color: white;
-    margin-top: 11px;
 }
 
 .options-container {
@@ -100,17 +102,20 @@ header {
 #timer-home {
     font-size: 64px;
     color: white;
-    position: relative;
-    top: 20px;
+    position: absolute;
+    bottom: 210px;
 }
 
 #start-button {
-    position: relative;
-    top: 70px;
+    position: absolute;
+    bottom: 125px;
+}
+
+.button {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-#start-button:hover {
+.button:hover {
     background-color: #23ecf0;
 }
 
@@ -131,13 +136,11 @@ header {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    position: absolute;
-    bottom: 13px;
-    padding: 15px;
     color: #159A9C;
     width: 50px;
     height: 30px;
     border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 #tips-button:hover {
@@ -151,4 +154,38 @@ header {
     width: 15px;
     height: 20px;
     font-size: 14px;
+}
+
+/*timerpage*/
+
+#timer-page {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+#timer-timer {
+    font-family: "inter";
+    font-size: 64px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#choices {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    bottom: 160px;
+    font-family: "inter";
+    font-size: 14px;
+    color: white;
+}
+
+#stop-button {
+    margin-bottom: 50px;
 }
