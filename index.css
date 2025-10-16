@@ -1,6 +1,20 @@
+@font-face {
+    font-family: "inter";
+    src: url(fonts/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+@font-face {
+    font-family: "jaro";
+    src: url(fonts/Jaro-Regular-VariableFont_opsz.ttf);
+}
+
 body {
     margin: 0 auto;
     background-color: #002333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
 }
 
 header {
@@ -21,6 +35,7 @@ header {
 
 #logo-text {
     color: white;
+    font-family: "jaro";
     font-size: 14px;
     margin: 0;
 }
@@ -31,12 +46,13 @@ header {
     justify-content: center;
     align-items: center;
     flex: 1;
+    font-family: "inter";
 }
 
 #choices-container {
     display: flex;
     flex-direction: column;
-    margin: 50px 0;
+    margin: 50px 0 40px 0;
 }
 
 .choose-title {
@@ -52,10 +68,11 @@ header {
 .options-container {
     display: flex;
     gap: 18.5px;
-    width: 100vw;
+    width: 95vw;
 }
 
-.option {
+.option-size,
+.option-kons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,13 +84,34 @@ header {
     margin-top: 11px;
 }
 
-.option:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.option-size:hover,
+.option-kons:hover {
+    background-color: #002d42;
+}
+
+.active {
+    background-color: #DEEFE7;
+}
+
+.active:hover {
+    background-color: #DEEFE7;
 }
 
 #timer-home {
     font-size: 64px;
     color: white;
+    position: relative;
+    top: 20px;
+}
+
+#start-button {
+    position: relative;
+    top: 70px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#start-button:hover {
+    background-color: #23ecf0;
 }
 
 .button {
@@ -92,9 +130,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
     gap: 5px;
+    position: absolute;
+    bottom: 13px;
+    padding: 15px;
     color: #159A9C;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+#tips-button:hover {
+    text-decoration: underline;
 }
 
 #tips-icon {
