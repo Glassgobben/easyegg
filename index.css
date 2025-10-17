@@ -131,19 +131,21 @@ header {
     font-size: 24px;
 }
 
-#tips-button {
+#tips-button,
+#home-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
     color: #159A9C;
-    width: 50px;
+    width: 75px;
     height: 30px;
     border-radius: 10px;
     margin-bottom: 40px;
 }
 
-#tips-button:hover {
+#tips-button:hover,
+#home-button:hover {
     text-decoration: underline;
 }
 
@@ -151,8 +153,14 @@ header {
     background-image: url('icons/lightbulbicon.png');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     width: 15px;
     height: 20px;
+    display: block;
+}
+
+#tips-text,
+#home-text {
     font-size: 14px;
 }
 
@@ -189,4 +197,58 @@ header {
     margin-bottom: 50px;
     font-family: "inter";
     font-size: 24px;
+}
+
+#tips-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 0 10px;
+    font-family: "inter";
+}
+
+#tips-title {
+    height: 35px;
+    font-family: "inter";
+    font-size: 24px;
+    color: white;
+    margin: 50px 0 0 0;
+}
+
+#tips-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+    font-size: 14px;
+    color: #159A9C;
+}
+
+#tips-menu p {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 88px;
+    margin: 0;
+}
+
+#obs {
+    font-size: 14px;
+    color: white;
+}
+
+#home-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home-icon {
+    background-image: url('icons/homeicon.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
 }

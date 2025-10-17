@@ -7,8 +7,9 @@ const timerPage = document.getElementById("timer-page");
 const timerTimer = document.getElementById("timer-timer");
 const stopButton = document.getElementById("stop-button");
 const timerChoices = document.getElementById("choices");
+const tipsPage = document.getElementById("tips-page");
 
-
+/*
 const litenLös = {
     minutes: 6,
     seconds: 360
@@ -243,4 +244,7 @@ function startTimer() {
                 `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
         }
     }, 1000);
-}
+} */
+
+tipsPage.style.display = "flex";
+homePage.style.display = "none";
