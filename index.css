@@ -177,7 +177,6 @@ header {
 }
 
 #choices {
-    display: flex;
     gap: 30px;
     position: relative;
     bottom: 160px;
@@ -188,4 +187,6 @@ header {
 
 #stop-button {
     margin-bottom: 50px;
+    font-family: "inter";
+    font-size: 24px;
 }

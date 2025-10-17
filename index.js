@@ -5,9 +5,9 @@ const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("home-page");
 const timerPage = document.getElementById("timer-page");
 const timerTimer = document.getElementById("timer-timer");
-const yourSize = document.getElementById("your-size");
-const yourKons = document.getElementById("your-kons");
 const stopButton = document.getElementById("stop-button");
+const timerChoices = document.getElementById("choices");
+
 
 const litenLös = {
     minutes: 6,
@@ -190,9 +190,18 @@ startButton.addEventListener("click", function () {
     homePage.style.display = "none";
     timerPage.style.display = "flex";
     timerTimer.textContent = timerHome.textContent;
+
+    const yourSize = document.createElement("div");
+    yourSize.setAttribute("id", "your-size");
     yourSize.textContent = choiceObj.storlek;
+    timerChoices.append(yourSize);
+    const yourKons = document.createElement("div");
+    yourKons.setAttribute("id", "your-kons");
     yourKons.textContent = choiceObj.preferens;
+    timerChoices.append(yourKons);
     startTimer();
+    timerChoices.style.display = "flex";
+
 })
 
 stopButton.addEventListener("click", function () {
@@ -200,18 +209,32 @@ stopButton.addEventListener("click", function () {
     homePage.style.display = "flex";
     optionSize.forEach(option => option.classList.contains("active") ? option.classList.remove("active") : null);
     optionKons.forEach(option => option.classList.contains("active") ? option.classList.remove("active") : null);
+    timerChoices.innerHTML = "";
+    startButton.style.display = "none";
+    timerHome.textContent = "00:00";
+    stopButton.textContent = "Stop";
+
+    choiceObj.storlek = "";
+    choiceObj.preferens = "";
+    choiceObj.seconds = "";
 })
 
 let timerInterval;
 
 function startTimer() {
     clearInterval(timerInterval);
-    let timeLeft = choiceObj.seconds;
+    let timeLeft = 3 //choiceObj.seconds;
 
     timerInterval = setInterval(() => {
-        if (timeLeft <= 0) {
+        if (timeLeft == 0) {
             clearInterval(timerInterval);
-            timerTimer.textContent = "00:00";
+            timerTimer.textContent = "Klar";
+            stopButton.textContent = "Ok";
+            timerChoices.innerHTML = "";
+
+            const div = document.createElement("div");
+            div.textContent = "Smaklig måltid!";
+            timerChoices.append(div);
         } else {
             timeLeft--;
             const minutes = Math.floor(timeLeft / 60);
