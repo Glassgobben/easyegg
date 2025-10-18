@@ -7,9 +7,14 @@ const timerPage = document.getElementById("timer-page");
 const timerTimer = document.getElementById("timer-timer");
 const stopButton = document.getElementById("stop-button");
 const timerChoices = document.getElementById("choices");
+const tipsButton = document.getElementById("tips-button");
 const tipsPage = document.getElementById("tips-page");
+const homeButton = document.getElementById("home-button");
+const tipsMenu = document.getElementById("tips-menu");
+const tipsItem = document.querySelectorAll(".tips-item");
+const tipsDesc = document.getElementById("tips-desc");
+const tipsContent = document.getElementById("tips-content");
 
-/*
 const litenLös = {
     minutes: 6,
     seconds: 360
@@ -54,6 +59,28 @@ const choiceObj = {
     preferens: "",
     seconds: ""
 };
+
+const tipsObj = [{
+    title: "Vänta",
+    description: "Riktigt färska ägg är absolut svårast att skala. I ett nyvärpt ägg är pH-värdet lägre med hinnor som klistrar sig fast vid skalet. Men efter ett par dagar tränger luft in i ägget som får hinnorna att separera och tjockna. Så låt gärna dina nyköpta ägg stå i kylen i en vecka innan det är dags att tillreda påskmaten"
+},
+{
+    title: "Kyl äggen",
+    description: "Ägg som kyls länge efter att de har kokats blir enklare att skala. Lägg därför äggen i kallt vatten när de är färdigkokta och låt de ligga länge tills de är ordentligt kalla."
+},
+{
+    title: "Koka först",
+    description: "Koka upp vattnet och lägg därefter i äggen i det sjudande vattnet – på det här sättet fastnar inte äggvitan i skalet och du kan enkelt skala dem!"
+},
+{
+    title: "Skaka",
+    description: "En riktigt bra metod när du ska servera många ägg. Efter kokningen lägger du äggen i en kastrull (eller skål) med  kallt vatten. Använd ett lock för att göra det lite enklare. Skaka och skala under rinnande vatten."
+},
+{
+    title: "Bakpulver",
+    description: "Bakpulver är en alkalisk substans som höjer äggens pH-värde och gör dem enklare att skala. Addera en tesked i vattnet och koka äggen som vanligt. Börja skala när äggen svalnat ordentligt. Du kan även tillsätta bakpulvret efter kokningen. Låt äggen dra i ett kallt vattenbad och häll över lite bakpulver. Vänta upp till fem minuter och skala därefter."
+}
+];
 
 startButton.style.display = "none";
 
@@ -244,7 +271,23 @@ function startTimer() {
                 `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
         }
     }, 1000);
-} */
+}
 
-tipsPage.style.display = "flex";
-homePage.style.display = "none";
+tipsButton.addEventListener("click", function () {
+    homePage.style.display = "none";
+    tipsPage.style.display = "flex";
+})
+
+homeButton.addEventListener("click", function () {
+    tipsPage.style.display = "none";
+    homePage.style.display = "flex";
+})
+
+tipsItem.forEach(item => item.addEventListener("click", function () {
+    tipsMenu.style.alignItems = "flex-start";
+    tipsItem.forEach(i => { i.style.justifyContent = "flex-start"; });
+
+    tipsContent.style.justifyContent = "flex-start";
+    tipsDesc.style.display = "flex";
+    tipsObj.find(tips => (tips.title === item.textContent) ? tipsDesc.textContent = tips.description : null);
+}))

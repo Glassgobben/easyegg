@@ -200,9 +200,10 @@ header {
 }
 
 #tips-page {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     flex: 1;
     padding: 0 10px;
     font-family: "inter";
@@ -213,6 +214,14 @@ header {
     font-family: "inter";
     font-size: 24px;
     color: white;
+}
+
+#tips-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10px;
     margin: 50px 0 0 0;
 }
 
@@ -220,20 +229,40 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 11px;
     font-size: 14px;
     color: #159A9C;
 }
 
-#tips-menu p {
+.tips-item {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 35px;
     width: 88px;
     margin: 0;
 }
 
+.tips-item:hover {
+    background-color: #002d42;
+    border-radius: 10px;
+}
+
+#tips-desc {
+    display: none;
+    justify-content: flex-start;
+    padding-top: 54px;
+    font-size: 14px;
+    font-family: "inter";
+    color: white;
+}
+
 #obs {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     color: white;
 }
