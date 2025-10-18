@@ -14,6 +14,7 @@ const tipsMenu = document.getElementById("tips-menu");
 const tipsItem = document.querySelectorAll(".tips-item");
 const tipsDesc = document.getElementById("tips-desc");
 const tipsContent = document.getElementById("tips-content");
+const obsText = document.getElementById("obs");
 
 const litenLös = {
     minutes: 6,
@@ -281,13 +282,28 @@ tipsButton.addEventListener("click", function () {
 homeButton.addEventListener("click", function () {
     tipsPage.style.display = "none";
     homePage.style.display = "flex";
+    tipsItem.forEach(i => { i.style.justifyContent = "center"; });
+    tipsMenu.style.alignItems = "center";
+    tipsContent.style.justifyContent = "center";
+    tipsDesc.style.display = "none";
+    tipsItem.forEach(item => item.classList.contains("tips-active") ? item.classList.remove("tips-active") : null)
+    if (obsText.textContent != "Välj ett tips för att visa mer") {
+        obsText.textContent = "Välj ett tips för att visa mer";
+    }
 })
 
 tipsItem.forEach(item => item.addEventListener("click", function () {
     tipsMenu.style.alignItems = "flex-start";
     tipsItem.forEach(i => { i.style.justifyContent = "flex-start"; });
 
+    tipsItem.forEach(t => t.classList.remove('tips-active'));
+    item.classList.add('tips-active');
+
     tipsContent.style.justifyContent = "flex-start";
     tipsDesc.style.display = "flex";
     tipsObj.find(tips => (tips.title === item.textContent) ? tipsDesc.textContent = tips.description : null);
+
+    if (obsText.textContent = "Välj ett tips för att visa mer") {
+        obsText.textContent = "OBS! Tipsen fungerar var för sig, inte i ordning";
+    }
 }))
